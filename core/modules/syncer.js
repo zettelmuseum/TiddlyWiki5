@@ -96,7 +96,58 @@ function Syncer(options) {
 		// Do a sync from the server
 		self.syncFromServer();
 	});
+	// Set up status output
+	if($tw.browser) {
+		this.setupStatusOutput();
+		this.statusOutput();
+	}
 }
+
+Syncer.prototype.setupStatusOutput = function() {
+	var dm = $tw.utils.domMaker;
+	this.statusOutputDivQueuedOut = dm("div",{"class": "tc-syncer-status-queued-out"});
+	this.statusOutputDivProgress = dm("div",{"class": "tc-syncer-status-in-progress"});
+	this.statusOutputDivQueuedIn = dm("div",{"class": "tc-syncer-status-queued-in"});
+	this.statusOutputDiv = dm("div",{"class": "tc-syncer-status",
+		children: [
+			this.statusOutputDivQueuedOut,
+			this.statusOutputDivProgress,
+			this.statusOutputDivQueuedIn
+		]});
+	document.body.insertBefore(this.statusOutputDiv,document.body.firstChild);
+	this.statusStatusItemDomNodes = {};
+};
+
+Syncer.prototype.statusOutput = function() {
+	var self = this,
+		dm = $tw.utils.domMaker,
+		numTasksQueuedOut = 0,
+		numTasksQueuedIn = 0,
+		numTasksInProgress = Object.keys(this.taskInProgress).length;
+	// Count the number of queued tasks
+	Object.keys(this.taskQueue).forEach(function(title) {
+		var task = self.taskQueue[title];
+		if(task.type === "load") {
+			numTasksQueuedIn++;
+		} else {
+			numTasksQueuedOut++;
+		}
+	});
+	// Adjust the number of markers in each queue
+	function adjustQueue(container,number) {
+		while(container.childNodes.length < number) {
+			// Add entry
+			container.insertBefore(dm("div",{"class":"tc-syncer-status-item"}),container.firstChild);
+		}
+		while(container.childNodes.length > number) {
+			// Remove entry
+			container.removeChild(container.lastChild);
+		}
+	};
+	adjustQueue(this.statusOutputDivQueuedOut,numTasksQueuedOut);
+	adjustQueue(this.statusOutputDivQueuedIn,numTasksQueuedIn);
+	adjustQueue(this.statusOutputDivProgress,numTasksInProgress);
+};
 
 /*
 Read (or re-read) the latest tiddler info from the store
@@ -145,6 +196,7 @@ Update the document body with the class "tc-dirty" if the wiki has unsaved/unsyn
 Syncer.prototype.updateDirtyStatus = function() {
 	if($tw.browser && !this.disableUI) {
 		$tw.utils.toggleClass(document.body,"tc-dirty",this.isDirty());
+		this.statusOutput();
 	}
 };
 

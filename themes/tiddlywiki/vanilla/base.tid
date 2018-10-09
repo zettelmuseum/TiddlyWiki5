@@ -2569,3 +2569,52 @@ select {
         background: <<colour select-tag-background>>;
 }
 
+/*
+** Syncer status
+*/
+
+.tc-syncer-status {
+}
+
+.tc-syncer-status-queued-out {
+	position: fixed;
+	top: 0;
+	left: 0;
+    line-height: 0;
+}
+
+.tc-syncer-status-in-progress {
+	position: fixed;
+	text-align: center;
+	top: 0;
+	left: 0;
+	right: 0;
+    line-height: 0;
+}
+
+.tc-syncer-status-queued-in {
+	position: fixed;
+	text-align: right;
+	top: 0;
+	right: 0;
+    line-height: 0;
+}
+
+.tc-syncer-status-item {
+	display: inline-block;
+	margin: 1px;
+	width: 3px;
+	height: 3px;
+}
+
+.tc-syncer-status-queued-out .tc-syncer-status-item {
+	background: red;
+}
+
+.tc-syncer-status-in-progress .tc-syncer-status-item {
+	background: blue;
+}
+
+.tc-syncer-status-queued-in .tc-syncer-status-item {
+	background: green;
+}
