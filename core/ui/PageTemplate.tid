@@ -27,11 +27,11 @@ tc-page-container tc-page-view-$(storyviewTitle)$ tc-language-$(languageTitle)$
 
 <$dropzone>
 
-<$list filter="[all[shadows+tiddlers]tag[$:/tags/PageTemplate]!has[draft.of]]" variable="listItem">
+<div class="tc-table-of-contents">
 
-<$transclude tiddler=<<listItem>>/>
+<<toc-selective-expandable "TableOfContents">>
 
-</$list>
+</div>
 
 </$dropzone>
 
