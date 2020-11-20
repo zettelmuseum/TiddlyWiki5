@@ -65,6 +65,7 @@ Plugins/Caption: 插件
 Plugins/Disable/Caption: 停用
 Plugins/Disable/Hint: 重新載入頁面時停用此插件
 Plugins/Disabled/Status: (已停用)
+Plugins/Downgrade/Caption: 降級
 Plugins/Empty/Hint: 無
 Plugins/Enable/Caption: 啟用
 Plugins/Enable/Hint: 重新載入頁面時啟用此插件
@@ -83,6 +84,11 @@ Plugins/Plugins/Hint: 插件
 Plugins/Reinstall/Caption: 重新安裝
 Plugins/Themes/Caption: 佈景主題
 Plugins/Themes/Hint: 佈景主題插件
+Plugins/Update/Caption: 更新
+Plugins/Updates/Caption: 更新
+Plugins/Updates/Hint: 已安裝插件的可用更新
+Plugins/Updates/UpdateAll/Caption: 更新 <<update-count>> 個插件
+Plugins/SubPluginPrompt: 提供 <<count>> 個可用的附加插件
 Parsing/Caption: 解析
 Parsing/Hint: 在此您可以全域停用或啟用維基解析規則。要使更改生效，請儲存並重新載入您的維基。停用某些解析規則，會妨礙 <$text text="TiddlyWiki"/>  正常運作。可使用[[安全模式|https://tiddlywiki.com/#SafeMode]]恢復正常操作。
 Parsing/Block/Caption: 區塊解析規則
@@ -105,13 +111,16 @@ Saving/GitService/Repo: 目標存儲庫 (例如，`Jermolene/TiddlyWiki5`)
 Saving/GitService/ServerURL: 伺服器 API 網址
 Saving/GitService/UserName: 使用者名稱
 Saving/GitService/GitHub/Caption: ~GitHub 儲存模組
-Saving/GitService/GitHub/Password: 密碼、OAUTH 令牌，或個人存取令牌 (詳見 [[GitHub 說明頁面|https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line]])
+Saving/GitService/GitHub/Password: 密碼、OAUTH 權杖，或個人存取權杖 (詳見 [[GitHub 說明頁面|https://help.github.com/en/articles/creating-a-personal-access-token-for-the-command-line]])
 Saving/GitService/GitLab/Caption: ~GitLab 儲存模組
-Saving/GitService/GitLab/Password: 個人存取令牌的 API (詳見 [[GitLab 說明頁面|https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html]])
+Saving/GitService/GitLab/Password: 個人存取權杖的 API (詳見 [[GitLab 說明頁面|https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html]])
+Saving/GitService/Gitea/Caption: Gitea 儲存模組
+Saving/GitService/Gitea/Password: 個人存取權杖的 API (通過 Gitea 的 Web 介面：`設定 | 應用程式 | 產生新的權杖`)
 Saving/TiddlySpot/Advanced/Heading: 進階設定
 Saving/TiddlySpot/BackupDir: 備份資料夾
 Saving/TiddlySpot/Backups: 備份
 Saving/TiddlySpot/Caption: ~TiddlySpot 儲存模組
+Saving/TiddlySpot/ControlPanel: ~TiddlySpot 控制台
 Saving/TiddlySpot/Description: 這些設定只適用於儲存到 http://tiddlyspot.com 或相容的遠端伺服器時。
 Saving/TiddlySpot/Filename: 上傳檔名
 Saving/TiddlySpot/Heading: ~TiddlySpot
